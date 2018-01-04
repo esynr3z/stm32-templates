@@ -1,6 +1,7 @@
 syntax: glob
-*build/*
+*/build*
 *.config
 *.creator*
 *.files
 *.includes
+*.user

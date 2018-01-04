@@ -1,12 +1,16 @@
 SET(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/gcc_stm32f0x.cmake)
 CMAKE_MINIMUM_REQUIRED(VERSION 3.6.0)
 ENABLE_LANGUAGE(ASM)
+IF(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
+    MESSAGE(FATAL_ERROR "In-source builds not allowed. Please make a new directory (called a build directory) and run CMake from there. You may need to remove CMakeCache.txt." )
+ENDIF()
+SET(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 PROJECT(template)
 
-ADD_DEFINITIONS("-DUSE_FULL_ASSERT=1
-                 -DUSE_STDPERIPH_DRIVER
-                 -DSTM32F030")
+ADD_DEFINITIONS(-DUSE_FULL_ASSERT=1
+                -DUSE_STDPERIPH_DRIVER
+                -DSTM32F030)
 
 SET(APP_PATH            app)
 SET(LIBS_PATH           lib)
