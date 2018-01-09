@@ -17,7 +17,7 @@ SET(CMAKE_OBJDUMP "arm-none-eabi-objdump${TOOL_EXECUTABLE_SUFFIX}" CACHE STRING 
 SET(CMAKE_SIZE "arm-none-eabi-size${TOOL_EXECUTABLE_SUFFIX}" CACHE STRING "size tool")
 
 #-- Common flags ---------------------------------------------------------------
-SET(COMPILER_COMMON_FLAGS "-mthumb -fno-builtin -mcpu=cortex-m0 -Wall -ffunction-sections -fdata-sections -fomit-frame-pointer -fno-unroll-loops -ffast-math -ftree-vectorize")
+SET(COMPILER_COMMON_FLAGS "-mthumb -fno-builtin -mcpu=cortex-m0 -Wall -ffunction-sections -fdata-sections")
 SET(CMAKE_C_FLAGS "${COMPILER_COMMON_FLAGS} -std=gnu99" CACHE STRING "c compiler flags")
 SET(CMAKE_CXX_FLAGS "${COMPILER_COMMON_FLAGS} -std=c++11" CACHE STRING "c++ compiler flags")
 SET(CMAKE_ASM_FLAGS "-mthumb -mcpu=cortex-m0" CACHE STRING "assembler compiler flags")
