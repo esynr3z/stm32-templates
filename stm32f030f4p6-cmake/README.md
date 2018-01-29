@@ -13,17 +13,17 @@
 
 Debug build - no optimization (-0g) and debug information included (-g):
 ```bash
-#From project root (stm32f030f4p6 dir)
+#From project root (stm32f030f4p6-cmake dir)
 mkdir build-debug && cd build-debug
-cmake -DCMAKE_BUILD_TYPE=Debug ../src
+cmake -DCMAKE_BUILD_TYPE=Debug ..
 cmake --build .
 ```
 
 Release build - size optimizations (-0s), link-time optimization (-flto):
 ```bash
-#From project root (stm32f030f4p6 dir)
+#From project root (stm32f030f4p6-cmake dir)
 mkdir build-release && cd build-release
-cmake -DCMAKE_BUILD_TYPE=Release ../src
+cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ```
 
