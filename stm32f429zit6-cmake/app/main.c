@@ -128,7 +128,7 @@ void periph_init()
 int main(void)
 {
     periph_init();
-    printf("Hello from STM32F4 running on SYSCLK=%d!\n", (int)SystemCoreClock);
+    printf("Hello from STM32F429 running on %d Hz!\n", (int)SystemCoreClock);
 
     while (1) {
     }

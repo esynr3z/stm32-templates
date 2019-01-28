@@ -2,7 +2,7 @@
 #include "retarget_conf.h"
 
 //-- Functions -----------------------------------------------------------------
-#ifdef USE_RETARGET
+#if defined(USE_RETARGET) || defined(USE_RETARGET_ITM)
 
 #if defined(__GNUC__)
 

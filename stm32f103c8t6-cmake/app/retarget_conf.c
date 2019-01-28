@@ -2,9 +2,10 @@
 #include "retarget_conf.h"
 
 //-- Functions -----------------------------------------------------------------
-#ifdef USE_RETARGET
+
 void retarget_init()
 {
+#ifdef USE_RETARGET
     // (1) Enable the peripheral clock of GPIO Port
     RETARGET_USART_GPIO_CLK_ENABLE();
     // Configure Tx Pin as : Alternate function, High Speed, Push pull, Pull up
@@ -31,35 +32,31 @@ void retarget_init()
 
     // (4) Enable USART
     LL_USART_Enable(RETARGET_USART);
+#elif defined USE_RETARGET_ITM
+#endif
 }
 
 int retarget_get_char()
 {
+#ifdef USE_RETARGET
     while (!LL_USART_IsActiveFlag_RXNE(RETARGET_USART)) {
     }
     return (int)LL_USART_ReceiveData8(RETARGET_USART);
+#else
+    return 0;
+#endif
 }
 
 int retarget_put_char(int ch)
 {
+#ifdef USE_RETARGET
     while (!LL_USART_IsActiveFlag_TXE(RETARGET_USART)) {
     }
     LL_USART_TransmitData8(RETARGET_USART, ch);
-    return 0;
-}
+#elif defined USE_RETARGET_ITM
+    ITM_SendChar((uint32_t)ch);
 #else
-void retarget_init()
-{
-}
-
-int retarget_get_char()
-{
-    return 0;
-}
-
-int retarget_put_char(int ch)
-{
     (void)ch;
+#endif
     return 0;
 }
-#endif // USE_RETARGET
