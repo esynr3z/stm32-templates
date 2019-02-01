@@ -49,9 +49,6 @@ void sysclk_init(void)
     APB1Clock = SystemCoreClock / 4;
     LL_RCC_SetAPB2Prescaler(LL_RCC_APB2_DIV_2);
     APB2Clock = SystemCoreClock / 2;
-
-    // Set systick to 1ms
-    LL_Init1msTick(SystemCoreClock);
 }
 
 void cache_init(void)
