@@ -20,7 +20,7 @@ SET(CMAKE_SIZE "arm-none-eabi-size${TOOL_EXECUTABLE_SUFFIX}" CACHE STRING "size 
 SET(COMPILER_COMMON_FLAGS "-mthumb -mcpu=cortex-m3 -Wall -Wextra -ffunction-sections -fdata-sections -mlong-calls")
 SET(CMAKE_C_FLAGS "${COMPILER_COMMON_FLAGS} -std=gnu99" CACHE STRING "c compiler flags")
 SET(CMAKE_CXX_FLAGS "${COMPILER_COMMON_FLAGS} -std=c++11" CACHE STRING "c++ compiler flags")
-SET(CMAKE_ASM_FLAGS "-mthumb -mcpu=cortex-m4" CACHE STRING "assembler compiler flags")
+SET(CMAKE_ASM_FLAGS "-mthumb -mcpu=cortex-m3" CACHE STRING "assembler compiler flags")
 SET(CMAKE_EXE_LINKER_FLAGS "-mthumb -mcpu=cortex-m3 -mlong-calls -Wl,--gc-sections  -specs=nosys.specs -specs=nano.specs -lgcc -lc" CACHE STRING "executable linker flags")
 SET(CMAKE_MODULE_LINKER_FLAGS "-mthumb -mcpu=cortex-m3" CACHE STRING "module linker flags")
 SET(CMAKE_SHARED_LINKER_FLAGS "-mthumb -mcpu=cortex-m3" CACHE STRING "shared linker flags")
