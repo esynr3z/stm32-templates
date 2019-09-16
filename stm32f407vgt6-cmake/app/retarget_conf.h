@@ -32,8 +32,8 @@ extern "C" {
 
 //-- Functions -----------------------------------------------------------------
 void retarget_init(void);
-int retarget_get_char(void);
-int retarget_put_char(int ch);
+char retarget_get_char(void);
+int retarget_put_char(char ch);
 
 #ifdef __cplusplus
 }

@@ -12,9 +12,9 @@ int _write(int fd, char* ptr, int len)
     int i = 0;
 
     while (ptr[i] && (i < len)) {
-        retarget_put_char((int)ptr[i]);
+        retarget_put_char(ptr[i]);
         if (ptr[i] == '\n') {
-            retarget_put_char((int)'\r');
+            retarget_put_char('\r');
         }
         i++;
     }
@@ -33,7 +33,7 @@ int _read(int file, char* ptr, int len)
     int i = 0;
 
     for (/* Empty */; len > 0; --len) {
-        char c = (char)retarget_get_char();
+        char c = retarget_get_char();
         *ptr++ = c;
         ++i;
         if (c == '\n')

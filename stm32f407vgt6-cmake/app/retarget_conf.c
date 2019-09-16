@@ -37,18 +37,18 @@ void retarget_init()
 #endif
 }
 
-int retarget_get_char()
+char retarget_get_char()
 {
 #ifdef USE_RETARGET
     while (!LL_USART_IsActiveFlag_RXNE(RETARGET_USART)) {
     }
-    return (int)LL_USART_ReceiveData8(RETARGET_USART);
+    return (char)LL_USART_ReceiveData8(RETARGET_USART);
 #else
     return 0;
 #endif
 }
 
-int retarget_put_char(int ch)
+int retarget_put_char(char ch)
 {
 #ifdef USE_RETARGET
     while (!LL_USART_IsActiveFlag_TXE(RETARGET_USART)) {
